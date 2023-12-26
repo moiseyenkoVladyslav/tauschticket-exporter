@@ -1,0 +1,2 @@
+1.Where is id="root" Element in automatically generated "create-react-app" Application . Not found in in index.html 
+Answer: index.html line 31. Was confused bcs id="root" necessary for React

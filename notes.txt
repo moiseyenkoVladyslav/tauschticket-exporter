@@ -1,0 +1,35 @@
+Notes to Tutorial REACT : 
+
+1.  front-end JavaScript library for creating UI component-based user interfaces.
+2. React for its simplicity, flexibility, performance, usability, virtual DOM, components, and many other features.
+3. straightforward and modular infrastructure
+4.React is a JavaScript framework, it is critical to understand certain JavaScript fundamentals in order to flow and understand React.
+5. npm create-react-app - Xommand for creating ready to use React App
+
+Structure of Application(Architecture):
+
+6.node_modules folder - Dependencies
+7.public folder - contains some static files, such as the HTML file
+8.The only code to remember is the div with the id root where the entire React application will be placed.
+9.src folder - is where development takes place
+10.React elements are immutable.!
+
+11. 
+  App.js - all of your components   will eventually meet 
+
+   index.js - where you target the root id from the index.html file and render the App.js file
+  
+    App.css and index.css - These both contain styles for your application.
+12.JSX - JavaScript Extension Syntax used in React to easily write HTML and JavaScript together
+13.create-react-app internally uses Babel for the JSX to JavaScript conversion
+
+Example of Code in React with JSX: 
+-const App = () => {
+  return (
+    <div>
+      <h1>JSX Title</h1>
+      <p>This is first JSX Element!</p>
+      <p>This is another JSX Element</p>
+    </div>
+  );
+};
