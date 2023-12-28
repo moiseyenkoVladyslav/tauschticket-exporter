@@ -33,3 +33,22 @@ Example of Code in React with JSX:
     </div>
   );
 };
+
+14. React is a Library, Angular/View are Frameworks
+15. Good for creating dynamic UI Interfaces
+16.sudo npm i -g vercel - VERCEL INSTALLING
+
+
+Fifma/Wireframe
+17. A wireframe is a simple visual guide that represents the skeletal framework of a website or digital product.
+18. Low/High fidelity Wireframe
+19. Things to remember(for creating Wireframe): 
+    Supported devices
+    Screen orientation
+    Context of use
+20. Usecases for Wireframe:
+    Get stakeholders to focus
+    Catch problems early
+    Cut down on revision time
+    Decide content prioritization
+    Test usability with users
