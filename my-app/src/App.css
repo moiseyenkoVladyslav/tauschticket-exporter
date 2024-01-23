@@ -23,7 +23,16 @@
   font-size: calc(10px + 2vmin);
   color: white;
 }
-
+.area-textfield {
+  width: 100%;
+  margin: 5rem 0;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+.area-textfield__buttton {
+  margin-right: 2rem;
+}
 .App-link {
   color: #61dafb;
 }
