@@ -33,6 +33,11 @@
 .area-textfield__buttton {
   margin-right: 2rem;
 }
+.area-textfield__input {
+  min-width: 35vw;
+  max-height: 50vh;
+}
+
 .App-link {
   color: #61dafb;
 }

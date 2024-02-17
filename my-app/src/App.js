@@ -29,15 +29,35 @@ function App() {
           </div> */}
           <div className="area-textfield__input">
             <form
+              className="area-textfield__input-form"
               onSubmit={(event) => {
                 event.preventDefault();
-                console.log(event.target[0].value);
+                const input = event.target[0].value;
+
+                const checkingHTMLRegex = function (input) {
+                  const regExTauschticket = /<title>Tauschticket: Homepage/;
+                  // console.log(regExTauschticket.test(input));
+                  const regEx =
+                    /<[a-z]+\d?(\s+[\w-]+=("[^"]*"|'[^']*'))*\s*\/?>|&#?\w+;/i;
+
+                  if (regEx.test(input) && regExTauschticket.test(input)) {
+                    console.log(input);
+                  }
+                  if (regEx.test(input) && !regExTauschticket.test(input)) {
+                    console.log("Your HTML is not from Tauschticket Projekt");
+                  }
+                  if (!regEx.test(input)) {
+                    console.log("Your input is not HTML");
+                  }
+                };
+                checkingHTMLRegex(input);
               }}
             >
               <Textarea
                 placeholder="Paste your copied HTML code to parse it!"
                 required
                 sx={{ mb: 1 }}
+                maxRows={16}
               />
 
               <Button type="submit">Start Parcing</Button>
