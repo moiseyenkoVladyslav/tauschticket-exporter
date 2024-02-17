@@ -44,10 +44,10 @@ function App() {
                     console.log(input);
                   }
                   if (regEx.test(input) && !regExTauschticket.test(input)) {
-                    console.log("Your HTML is not from Tauschticket Projekt");
+                    alert("Your HTML is not from Tauschticket Projekt");
                   }
                   if (!regEx.test(input)) {
-                    console.log("Your input is not HTML");
+                    alert("Your input is not HTML");
                   }
                 };
                 checkingHTMLRegex(input);
