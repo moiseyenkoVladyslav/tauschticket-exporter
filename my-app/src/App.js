@@ -33,7 +33,9 @@ function App() {
               onSubmit={(event) => {
                 event.preventDefault();
                 const input = event.target[0].value;
+                // console.log(input, typeof input);
 
+                //Function for verifying a HTML link
                 const checkingHTMLRegex = function (input) {
                   const regExTauschticket = /<title>Tauschticket: Homepage/;
                   // console.log(regExTauschticket.test(input));
@@ -51,6 +53,14 @@ function App() {
                   }
                 };
                 checkingHTMLRegex(input);
+
+                //Parsing an inserted HTML
+                const parser = new DOMParser();
+                const parsedDocument = parser.parseFromString(
+                  input,
+                  "text/html"
+                );
+                console.log(`Here is parsed HTML:`, parsedDocument);
               }}
             >
               <Textarea
