@@ -54,13 +54,40 @@ function App() {
                 };
                 checkingHTMLRegex(input);
 
-                //Parsing an inserted HTML
+                ////////////////////////////////////////////
+                //////Parsing an inserted HTML//////
+                ////////////////////////////////////////////
+
+                /////Manual saving of Data for 1 Book/////
                 const parser = new DOMParser();
                 const parsedDocument = parser.parseFromString(
                   input,
                   "text/html"
                 );
                 console.log(`Here is parsed HTML:`, parsedDocument);
+
+                //Book Title
+                const bookTitle = parsedDocument.getElementsByClassName(
+                  "category_item_link2"
+                )[0].innerText;
+                console.log(bookTitle);
+                //Author name (already plitted in Array)
+
+                const bookAuthor = parsedDocument
+                  .getElementsByClassName("category_item_text")[0]
+                  .textContent.split(`,`);
+                console.log(bookAuthor);
+                //Publish Date//
+                const bookDate = parsedDocument
+                  .getElementsByClassName("category_item_text")[1]
+                  .textContent.split(` `);
+
+                //getting braces off//
+                const regexStringDate = /\(([^()]*)\)/g;
+                bookDate[1] = [
+                  ...bookDate[1].matchAll(regexStringDate),
+                ].flat()[1];
+                console.log(bookDate);
               }}
             >
               <Textarea
