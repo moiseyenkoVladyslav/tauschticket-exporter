@@ -55,9 +55,25 @@ function App() {
                 checkingHTMLRegex(input);
 
                 ////////////////////////////////////////////
-                //////Parsing an inserted HTML//////
+                //////Parsing an inserted HTML////////////
                 ////////////////////////////////////////////
-
+                const bookObjectArray = [];
+                //Object//
+                const bookObject = {
+                  book: {
+                    title: "",
+                    authors: [
+                      { authorFullName: "", uuid: "" },
+                      { authorFullName: "", uuid: "" },
+                    ],
+                    publishDate: "",
+                    description: "",
+                    imageUrl: "",
+                    isbn: "",
+                  },
+                  comment: "",
+                  price: 0,
+                };
                 /////Manual saving of Data for 1 Book/////
                 const parser = new DOMParser();
                 const parsedDocument = parser.parseFromString(
@@ -77,17 +93,59 @@ function App() {
                   .getElementsByClassName("category_item_text")[0]
                   .textContent.split(`,`);
                 console.log(bookAuthor);
-                //Publish Date//
-                const bookDate = parsedDocument
+
+                //Publish Date & Comment//
+
+                const bookDateArray = parsedDocument
                   .getElementsByClassName("category_item_text")[1]
                   .textContent.split(` `);
-
-                //getting braces off//
+                //getting braces off
                 const regexStringDate = /\(([^()]*)\)/g;
-                bookDate[1] = [
-                  ...bookDate[1].matchAll(regexStringDate),
+                bookDateArray[1] = [
+                  ...bookDateArray[1].matchAll(regexStringDate),
                 ].flat()[1];
-                console.log(bookDate);
+                //Comment and Publish Date Strings//
+                const bookComment = bookDateArray[0];
+                const bookDate = bookDateArray[1];
+                // console.log(bookDateArray);
+                // console.log(bookComment, bookDate);
+
+                //Describtion//
+
+                const bookDescribtion = parsedDocument.getElementsByClassName(
+                  "category_item_comment_3"
+                )[0].textContent;
+                console.log(bookDescribtion);
+
+                //Image & ISBN//
+
+                //ImageURL
+                const regexbookImage = /<img[^>]*src="([^"]+)"[^>]*>/g;
+                const bookImageArray =
+                  parsedDocument.getElementsByClassName("category_item_pic3")[0]
+                    .innerHTML;
+                const bookImageSrcAtr = [
+                  ...bookImageArray.matchAll(regexbookImage),
+                ].flat()[1];
+                const bookSrc = `https:` + bookImageSrcAtr;
+
+                //ISBN
+                let bookISBN;
+                const regexISBN = /([0-9]{13}(?![0-9]))/g;
+                const checkISBN = [...bookSrc.matchAll(regexISBN)].flat()[0];
+                if (typeof checkISBN === `string`) {
+                  console.log("ISBN EXIST");
+                  bookISBN = checkISBN;
+                } else {
+                  bookISBN = ``;
+                  console.log("ISBN doesnt exist");
+                }
+
+                //price//
+                const bookPrice = parsedDocument.getElementsByClassName(
+                  "category_item_tickets"
+                )[0].innerText;
+                console.log(bookPrice);
               }}
             >
               <Textarea
