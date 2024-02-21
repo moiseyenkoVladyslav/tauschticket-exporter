@@ -88,20 +88,20 @@ function App() {
                   /////Manual saving of Data for 1 Book/////
 
                   //Book Title
-                  const bookTitle = parsedDocument.getElementsByClassName(
-                    "category_item_link2"
-                  )[0].innerText;
+                  const bookTitle = parsedDocumentAllBooksRaw[
+                    i
+                  ].getElementsByClassName("category_item_link2")[0].innerText;
                   console.log(bookTitle);
                   //Author name (already plitted in Array)
 
-                  const bookAuthor = parsedDocument
+                  const bookAuthor = parsedDocumentAllBooksRaw[i]
                     .getElementsByClassName("category_item_text")[0]
                     .textContent.split(`, `);
                   console.log(bookAuthor);
 
                   //Publish Date & Comment//
 
-                  const bookDateArray = parsedDocument
+                  const bookDateArray = parsedDocumentAllBooksRaw[i]
                     .getElementsByClassName("category_item_text")[1]
                     .textContent.split(` `);
                   //getting braces off
@@ -117,17 +117,22 @@ function App() {
 
                   //Describtion//
 
-                  const bookDescribtion = parsedDocument
-                    .getElementsByClassName("category_item_comment_3")[0]
-                    .textContent.trim();
-                  console.log(bookDescribtion);
+                  const bookDescribtion =
+                    parsedDocumentAllBooksRaw[i]
+                      .getElementsByClassName("category_item_comment_3")[0]
+                      .textContent.trim()
+                      .split(`\n`)
+                      .join(` `)
+                      .split(`...`)[0]
+                      .trim() + ` ...`;
+                  // console.log(bookDescribtion);
 
                   //Image & ISBN//
 
                   //ImageURL
                   const regexbookImage = /<img[^>]*src="([^"]+)"[^>]*>/g;
                   const bookImageArray =
-                    parsedDocument.getElementsByClassName(
+                    parsedDocumentAllBooksRaw[i].getElementsByClassName(
                       "category_item_pic3"
                     )[0].innerHTML;
                   const bookImageSrcAtr = [
@@ -149,11 +154,11 @@ function App() {
 
                   //price//
                   const bookPrice = parseInt(
-                    parsedDocument.getElementsByClassName(
+                    parsedDocumentAllBooksRaw[i].getElementsByClassName(
                       "category_item_tickets"
                     )[0].innerText
                   );
-                  console.log(bookPrice);
+                  // console.log(bookPrice);
 
                   //INSERTING DATA IN OBJECT//
 
