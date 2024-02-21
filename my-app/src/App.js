@@ -58,94 +58,132 @@ function App() {
                 //////Parsing an inserted HTML////////////
                 ////////////////////////////////////////////
                 const bookObjectArray = [];
-                //Object//
-                const bookObject = {
-                  book: {
-                    title: "",
-                    authors: [
-                      { authorFullName: "", uuid: "" },
-                      { authorFullName: "", uuid: "" },
-                    ],
-                    publishDate: "",
-                    description: "",
-                    imageUrl: "",
-                    isbn: "",
-                  },
-                  comment: "",
-                  price: 0,
-                };
-                /////Manual saving of Data for 1 Book/////
+
+                //Manual saving of Data//
                 const parser = new DOMParser();
                 const parsedDocument = parser.parseFromString(
                   input,
                   "text/html"
                 );
                 console.log(`Here is parsed HTML:`, parsedDocument);
+                const parsedDocumentAllBooksRaw =
+                  parsedDocument.getElementsByClassName("category_space2");
+                console.log(parsedDocumentAllBooksRaw);
 
-                //Book Title
-                const bookTitle = parsedDocument.getElementsByClassName(
-                  "category_item_link2"
-                )[0].innerText;
-                console.log(bookTitle);
-                //Author name (already plitted in Array)
+                //for-each loop
+                for (let i = 0; i < parsedDocumentAllBooksRaw.length; i++) {
+                  //Object//
+                  const bookObject = {
+                    book: {
+                      title: "",
+                      authors: [],
+                      publishDate: "",
+                      description: "",
+                      imageUrl: "",
+                      isbn: "",
+                    },
+                    comment: "",
+                    price: 0,
+                  };
+                  /////Manual saving of Data for 1 Book/////
 
-                const bookAuthor = parsedDocument
-                  .getElementsByClassName("category_item_text")[0]
-                  .textContent.split(`,`);
-                console.log(bookAuthor);
+                  //Book Title
+                  const bookTitle = parsedDocument.getElementsByClassName(
+                    "category_item_link2"
+                  )[0].innerText;
+                  console.log(bookTitle);
+                  //Author name (already plitted in Array)
 
-                //Publish Date & Comment//
+                  const bookAuthor = parsedDocument
+                    .getElementsByClassName("category_item_text")[0]
+                    .textContent.split(`, `);
+                  console.log(bookAuthor);
 
-                const bookDateArray = parsedDocument
-                  .getElementsByClassName("category_item_text")[1]
-                  .textContent.split(` `);
-                //getting braces off
-                const regexStringDate = /\(([^()]*)\)/g;
-                bookDateArray[1] = [
-                  ...bookDateArray[1].matchAll(regexStringDate),
-                ].flat()[1];
-                //Comment and Publish Date Strings//
-                const bookComment = bookDateArray[0];
-                const bookDate = bookDateArray[1];
-                // console.log(bookDateArray);
-                // console.log(bookComment, bookDate);
+                  //Publish Date & Comment//
 
-                //Describtion//
+                  const bookDateArray = parsedDocument
+                    .getElementsByClassName("category_item_text")[1]
+                    .textContent.split(` `);
+                  //getting braces off
+                  const regexStringDate = /\(([^()]*)\)/g;
+                  bookDateArray[1] = [
+                    ...bookDateArray[1].matchAll(regexStringDate),
+                  ].flat()[1];
+                  //Comment and Publish Date Strings//
+                  const bookComment = bookDateArray[0];
+                  const bookDate = bookDateArray[1];
+                  // console.log(bookDateArray);
+                  // console.log(bookComment, bookDate);
 
-                const bookDescribtion = parsedDocument.getElementsByClassName(
-                  "category_item_comment_3"
-                )[0].textContent;
-                console.log(bookDescribtion);
+                  //Describtion//
 
-                //Image & ISBN//
+                  const bookDescribtion = parsedDocument
+                    .getElementsByClassName("category_item_comment_3")[0]
+                    .textContent.trim();
+                  console.log(bookDescribtion);
 
-                //ImageURL
-                const regexbookImage = /<img[^>]*src="([^"]+)"[^>]*>/g;
-                const bookImageArray =
-                  parsedDocument.getElementsByClassName("category_item_pic3")[0]
-                    .innerHTML;
-                const bookImageSrcAtr = [
-                  ...bookImageArray.matchAll(regexbookImage),
-                ].flat()[1];
-                const bookSrc = `https:` + bookImageSrcAtr;
+                  //Image & ISBN//
 
-                //ISBN
-                let bookISBN;
-                const regexISBN = /([0-9]{13}(?![0-9]))/g;
-                const checkISBN = [...bookSrc.matchAll(regexISBN)].flat()[0];
-                if (typeof checkISBN === `string`) {
-                  console.log("ISBN EXIST");
-                  bookISBN = checkISBN;
-                } else {
-                  bookISBN = ``;
-                  console.log("ISBN doesnt exist");
+                  //ImageURL
+                  const regexbookImage = /<img[^>]*src="([^"]+)"[^>]*>/g;
+                  const bookImageArray =
+                    parsedDocument.getElementsByClassName(
+                      "category_item_pic3"
+                    )[0].innerHTML;
+                  const bookImageSrcAtr = [
+                    ...bookImageArray.matchAll(regexbookImage),
+                  ].flat()[1];
+                  const bookSrc = `https:` + bookImageSrcAtr;
+
+                  //ISBN
+                  let bookISBN;
+                  const regexISBN = /([0-9]{13}(?![0-9]))/g;
+                  const checkISBN = [...bookSrc.matchAll(regexISBN)].flat()[0];
+                  if (typeof checkISBN === `string`) {
+                    console.log("ISBN EXIST");
+                    bookISBN = checkISBN;
+                  } else {
+                    bookISBN = ``;
+                    console.log("ISBN doesnt exist");
+                  }
+
+                  //price//
+                  const bookPrice = parseInt(
+                    parsedDocument.getElementsByClassName(
+                      "category_item_tickets"
+                    )[0].innerText
+                  );
+                  console.log(bookPrice);
+
+                  //INSERTING DATA IN OBJECT//
+
+                  bookObject.book.title = bookTitle;
+                  //Adding Authors//
+                  for (let i = 0; i < bookAuthor.length; i++) {
+                    bookObject.book.authors.push({
+                      authorFullName: bookAuthor[i],
+                      uuid: "",
+                    });
+                  }
+                  bookObject.book.publishDate = bookDate;
+                  bookObject.book.description = bookDescribtion;
+                  bookObject.book.imageUrl = bookSrc;
+                  bookObject.book.isbn = bookISBN;
+                  bookObject.comment = bookComment;
+                  bookObject.price = bookPrice;
+
+                  console.log(bookObject);
+
+                  bookObjectArray.push(bookObject);
                 }
+                console.log(bookObjectArray);
 
-                //price//
-                const bookPrice = parsedDocument.getElementsByClassName(
-                  "category_item_tickets"
-                )[0].innerText;
-                console.log(bookPrice);
+                // bookObject.book.authors.push({
+                //   authorFullName: "",
+                //   uuid: "",
+                // });
+                // console.log(Object.keys(bookObject.book.authors).length);
+                // console.log(bookObject);
               }}
             >
               <Textarea
