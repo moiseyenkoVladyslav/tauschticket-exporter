@@ -208,17 +208,27 @@ function App() {
 
                   //downloading of json file//
 
-                  const buttonJSON =
-                    document.getElementsByClassName(`button_download_json`)[0];
+                  let dataStr =
+                    "data:text/json;charset=utf-8," +
+                    encodeURIComponent(bookJSON);
+                  let downloadAnchorNode = document.createElement(`a`);
+                  downloadAnchorNode.setAttribute("href", dataStr);
+                  downloadAnchorNode.setAttribute(
+                    "download",
+                    "JSON_books.json"
+                  );
+                  downloadAnchorNode.click();
+                  downloadAnchorNode.remove();
 
-                  const myRequest = new Request("JSON_book.json");
-                  fetch(myRequest)
-                    .then((response) => response.blob())
-                    .then((myBlob) => {
-                      const objectURL = URL.createObjectURL(myBlob);
-                      console.log(objectURL);
-                      buttonJSON.src = objectURL;
-                    });
+                  //blob-2
+                  // const myRequest = new Request("JSON_book.json");
+                  // fetch(myRequest)
+                  //   .then((response) => response.blob())
+                  //   .then((myBlob) => {
+                  //     const objectURL = URL.createObjectURL(myBlob);
+                  //     console.log(objectURL);
+                  //     buttonJSON.src = objectURL;
+                  //   });
                   // //blob
 
                   // const text = "Hello World";
