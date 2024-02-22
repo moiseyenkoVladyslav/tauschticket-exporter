@@ -183,12 +183,12 @@ function App() {
                 }
                 console.log(bookObjectArray);
 
-                // bookObject.book.authors.push({
-                //   authorFullName: "",
-                //   uuid: "",
-                // });
-                // console.log(Object.keys(bookObject.book.authors).length);
-                // console.log(bookObject);
+                //using localStorage for saving a bookArray
+                localStorage.setItem(
+                  "bookObjectArray",
+                  JSON.stringify(bookObjectArray)
+                );
+                // localStorage.clear();
               }}
             >
               <Textarea
@@ -197,9 +197,52 @@ function App() {
                 sx={{ mb: 1 }}
                 maxRows={16}
               />
-
               <Button type="submit">Start Parcing</Button>
+              <Button
+                className="button_download_json"
+                variant="outlined"
+                onClick={() => {
+                  //using localStorage to get bookArray from form-Object
+                  const bookJSON = localStorage.getItem("bookObjectArray");
+                  console.log("Here is your JSON-File:", bookJSON);
+
+                  //downloading of json file//
+
+                  const buttonJSON =
+                    document.getElementsByClassName(`button_download_json`)[0];
+
+                  const myRequest = new Request("JSON_book.json");
+                  fetch(myRequest)
+                    .then((response) => response.blob())
+                    .then((myBlob) => {
+                      const objectURL = URL.createObjectURL(myBlob);
+                      console.log(objectURL);
+                      buttonJSON.src = objectURL;
+                    });
+                  // //blob
+
+                  // const text = "Hello World";
+                  // const blob = new Blob([text], {
+                  //   type: `text/plain
+                  //   `,
+                  // });
+                  // console.log(blob);
+                  // //creating url
+                  // const url = URL.createObjectURL(blob);
+                  // console.log(url);
+
+                  // //setting as href
+                  // const buttonJSON =
+                  //   document.getElementsByClassName(`button_download_json`)[0];
+                  // console.log(buttonJSON);
+                  // buttonJSON.href = url;
+                  // buttonJSON.download = `JSON-File of Books.json`;
+                }}
+              >
+                GET JSON
+              </Button>
             </form>
+
             {/* <Textarea
               minRows={2}
               size="lg"
