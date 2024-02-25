@@ -1,5 +1,8 @@
 // import logo from "./logo.svg";
 import Tauschticket_Exporter_Logo from "./Tauschticket_Exporter_Logo.svg";
+import facebook_logo from "./facebook_logo.svg";
+import tiktok_logo from "./tiktok_logo.svg";
+import instagram_logo from "./instagram_logo.svg";
 import "./App.css";
 import Button from "@mui/material/Button";
 
@@ -49,7 +52,7 @@ function App() {
             dui, et sodales nibh dui ut purus.
           </p>
         </div>
-        <h1 className="header-1 abel-regular">How to get started</h1>
+        <h1 className="header-1_1 abel-regular">How to get started</h1>
         <div className="area-textfield">
           {/* <div className="area-textfield__buttton">
             <Button variant="outlined" disableElevation>
@@ -224,62 +227,64 @@ function App() {
                 placeholder="Paste your copied HTML code to parse it!"
                 required
                 sx={{ mb: 1 }}
-                maxRows={16}
+                maxRows={14}
               />
-              <Button type="submit">Start Parcing</Button>
-              <Button
-                className="button_download_json"
-                variant="outlined"
-                onClick={() => {
-                  //using localStorage to get bookArray from form-Object
-                  const bookJSON = localStorage.getItem("bookObjectArray");
-                  console.log("Here is your JSON-File:", bookJSON);
+              <div className="area-textfield__buttons">
+                <Button type="submit">Start Parcing</Button>
+                <Button
+                  className="button_download_json"
+                  variant="outlined"
+                  onClick={() => {
+                    //using localStorage to get bookArray from form-Object
+                    const bookJSON = localStorage.getItem("bookObjectArray");
+                    console.log("Here is your JSON-File:", bookJSON);
 
-                  //downloading of json file//
+                    //downloading of json file//
 
-                  let dataStr =
-                    "data:text/json;charset=utf-8," +
-                    encodeURIComponent(bookJSON);
-                  let downloadAnchorNode = document.createElement(`a`);
-                  downloadAnchorNode.setAttribute("href", dataStr);
-                  downloadAnchorNode.setAttribute(
-                    "download",
-                    "JSON_books.json"
-                  );
-                  downloadAnchorNode.click();
-                  downloadAnchorNode.remove();
+                    let dataStr =
+                      "data:text/json;charset=utf-8," +
+                      encodeURIComponent(bookJSON);
+                    let downloadAnchorNode = document.createElement(`a`);
+                    downloadAnchorNode.setAttribute("href", dataStr);
+                    downloadAnchorNode.setAttribute(
+                      "download",
+                      "JSON_books.json"
+                    );
+                    downloadAnchorNode.click();
+                    downloadAnchorNode.remove();
 
-                  //blob-2
-                  // const myRequest = new Request("JSON_book.json");
-                  // fetch(myRequest)
-                  //   .then((response) => response.blob())
-                  //   .then((myBlob) => {
-                  //     const objectURL = URL.createObjectURL(myBlob);
-                  //     console.log(objectURL);
-                  //     buttonJSON.src = objectURL;
-                  //   });
-                  // //blob
+                    //blob-2
+                    // const myRequest = new Request("JSON_book.json");
+                    // fetch(myRequest)
+                    //   .then((response) => response.blob())
+                    //   .then((myBlob) => {
+                    //     const objectURL = URL.createObjectURL(myBlob);
+                    //     console.log(objectURL);
+                    //     buttonJSON.src = objectURL;
+                    //   });
+                    // //blob
 
-                  // const text = "Hello World";
-                  // const blob = new Blob([text], {
-                  //   type: `text/plain
-                  //   `,
-                  // });
-                  // console.log(blob);
-                  // //creating url
-                  // const url = URL.createObjectURL(blob);
-                  // console.log(url);
+                    // const text = "Hello World";
+                    // const blob = new Blob([text], {
+                    //   type: `text/plain
+                    //   `,
+                    // });
+                    // console.log(blob);
+                    // //creating url
+                    // const url = URL.createObjectURL(blob);
+                    // console.log(url);
 
-                  // //setting as href
-                  // const buttonJSON =
-                  //   document.getElementsByClassName(`button_download_json`)[0];
-                  // console.log(buttonJSON);
-                  // buttonJSON.href = url;
-                  // buttonJSON.download = `JSON-File of Books.json`;
-                }}
-              >
-                GET JSON
-              </Button>
+                    // //setting as href
+                    // const buttonJSON =
+                    //   document.getElementsByClassName(`button_download_json`)[0];
+                    // console.log(buttonJSON);
+                    // buttonJSON.href = url;
+                    // buttonJSON.download = `JSON-File of Books.json`;
+                  }}
+                >
+                  GET JSON
+                </Button>
+              </div>
             </form>
 
             {/* <Textarea
@@ -289,6 +294,35 @@ function App() {
               placeholder="Enter copied Data"
             /> */}
           </div>
+        </div>
+        <div className="footer">
+          <h1 className="header-1_2 abel-regular">Why Buchbaum ?</h1>
+          <div className="footer_description">
+            <p className="typography_description roboto-light">
+              Suspendisse augue tortor, eleifend nec lacus sit amet,
+              sollicitudin tristique dui. Donec gravida feugiat egestas. Aenean
+              lacinia lacinia urna et laoreet. Integer et tempus mi. Praesent
+              elit enim, tincidunt quis condimentum vitae, dignissim sed nulla.
+              Phasellus varius nec erat sed accumsan. Proin eget suscipit enim.
+              Integer justo leo, sollicitudin vitae neque at, sodales placerat
+              orci. Suspendisse ac turpis tortor. Etiam tempus tortor a elit
+              maximus consectetur. Integer ullamcorper, dolor vel posuere
+              dictum, lectus quam tincidunt dui, et sodales nibh dui ut purus.
+            </p>
+          </div>
+        </div>
+        <div className="links-section">
+          <div className="links-section_logos">
+            <img
+              src={facebook_logo}
+              className="links-section_logos-facebook"
+            ></img>
+            <img src={instagram_logo} className="links-section_logo"></img>
+            <img src={tiktok_logo} className="links-section_logo"></img>
+          </div>
+          <p className="typography_links-section">
+            2024 Tauschticket, Copyright All rights reserved
+          </p>
         </div>
         {/* <p>And now</p> */}
       </header>
