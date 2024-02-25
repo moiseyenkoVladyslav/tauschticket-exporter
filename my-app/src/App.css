@@ -6,26 +6,74 @@
   height: 40vmin;
   pointer-events: none;
 }
+.app_logo-tauschticket {
+  /* height: 2rem;
+  width: 2rem; */
+}
 
 @media (prefers-reduced-motion: no-preference) {
   .App-logo {
     animation: App-logo-spin infinite 20s linear;
   }
 }
+html {
+  display: grid;
+  grid-template-columns: 2rem repeat(10, 1fr) 2rem;
 
+  background-color: white;
+}
+body {
+  grid-column-start: 1;
+  grid-column-end: -1;
+}
 .App-header {
-  background-color: #282c34;
+  /* background-color: #282c34; */
+  background-color: white;
   min-height: 100vh;
-  display: flex;
+  /* display: flex;
   flex-direction: column;
   align-items: center;
-  justify-content: center;
+  justify-content: center; */
+  display: grid;
+  grid-template-columns: 4rem repeat(10, 1fr) 4rem;
+  grid-template-rows: min-content min-content min-content 1fr;
+  row-gap: 6rem;
   font-size: calc(10px + 2vmin);
   color: white;
 }
+.header_page {
+  padding-top: 1.6rem;
+  padding-bottom: 1.6rem;
+  grid-column-start: 1;
+  grid-column-end: -1;
+  grid-row-start: 1;
+  grid-row-end: 2;
+  background-color: #5a9863;
+  display: grid;
+  /* grid-template-columns: minmax(0, 33vw) min-content minmax(0, 33vw); */
+  grid-template-columns: 5rem repeat(3, 1fr) 5rem;
+}
+.header_page-navi {
+  grid-column-start: 2;
+  grid-column-end: 3;
+  display: flex;
+  justify-content: space-around;
+  align-items: center;
+}
+.header_description {
+  padding: 2rem 5rem;
+  grid-column-start: 2;
+  grid-column-end: -2;
+  grid-row-start: 2;
+  grid-row-end: 3;
+  background-color: #f6f6f6;
+}
 .area-textfield {
+  grid-column-start: 4;
+  grid-column-end: -4;
+  grid-row-start: 4;
   width: 100%;
-  margin: 5rem 0;
+  /* margin: 5rem 0; */
   display: flex;
   align-items: center;
   justify-content: center;
@@ -40,6 +88,104 @@
 
 .App-link {
   color: #61dafb;
+}
+/*Typography*/
+.typography_header-page {
+  /*1rem = 1px/16*/
+  font-size: 1rem;
+}
+.typography_description {
+  color: #7c7777;
+  font-size: 1rem;
+}
+/*roboto style*/
+.roboto-thin {
+  font-family: "Roboto", sans-serif;
+  font-weight: 100;
+  font-style: normal;
+}
+
+.roboto-light {
+  font-family: "Roboto", sans-serif;
+  font-weight: 300;
+  font-style: normal;
+}
+
+.roboto-regular {
+  font-family: "Roboto", sans-serif;
+  font-weight: 400;
+  font-style: normal;
+}
+
+.roboto-medium {
+  font-family: "Roboto", sans-serif;
+  font-weight: 500;
+  font-style: normal;
+}
+
+.roboto-bold {
+  font-family: "Roboto", sans-serif;
+  font-weight: 700;
+  font-style: normal;
+}
+
+.roboto-black {
+  font-family: "Roboto", sans-serif;
+  font-weight: 900;
+  font-style: normal;
+}
+
+.roboto-thin-italic {
+  font-family: "Roboto", sans-serif;
+  font-weight: 100;
+  font-style: italic;
+}
+
+.roboto-light-italic {
+  font-family: "Roboto", sans-serif;
+  font-weight: 300;
+  font-style: italic;
+}
+
+.roboto-regular-italic {
+  font-family: "Roboto", sans-serif;
+  font-weight: 400;
+  font-style: italic;
+}
+
+.roboto-medium-italic {
+  font-family: "Roboto", sans-serif;
+  font-weight: 500;
+  font-style: italic;
+}
+
+.roboto-bold-italic {
+  font-family: "Roboto", sans-serif;
+  font-weight: 700;
+  font-style: italic;
+}
+
+.roboto-black-italic {
+  font-family: "Roboto", sans-serif;
+  font-weight: 900;
+  font-style: italic;
+}
+/*abel font*/
+.abel-regular {
+  font-family: "Abel", sans-serif;
+  font-weight: 400;
+  font-style: normal;
+}
+
+/* ___ */
+.header-1 {
+  font-size: 3rem;
+
+  color: black;
+  grid-row-start: 3;
+  grid-row-end: 4;
+  grid-column-start: 4;
+  grid-column-end: -4;
 }
 
 @keyframes App-logo-spin {

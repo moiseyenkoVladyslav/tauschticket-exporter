@@ -1,4 +1,5 @@
-import logo from "./logo.svg";
+// import logo from "./logo.svg";
+import Tauschticket_Exporter_Logo from "./Tauschticket_Exporter_Logo.svg";
 import "./App.css";
 import Button from "@mui/material/Button";
 
@@ -8,11 +9,10 @@ function App() {
   return (
     <div className="App">
       <header className="App-header">
-        <img src={logo} className="App-logo" alt="logo" />
+        {/* <img src={logo} className="App-logo" alt="logo" />
         {/* <p>
           Edit <code>src/App.js</code> and save to reload.
-        </p> */}
-
+        </p> 
         <a
           className="App-link"
           href="https://reactjs.org"
@@ -20,7 +20,36 @@ function App() {
           rel="noopener noreferrer"
         >
           Learn React
-        </a>
+        </a> 
+        */}
+        <div className="header_page">
+          <div className="header_page-navi">
+            <a className="typography_header-page">What is it</a>
+            <a className="typography_header-page">How to get Started</a>
+            <a className="typography_header-page">Why Buchbaum ?</a>
+          </div>
+          <div className="header_page-logo">
+            <img
+              src={Tauschticket_Exporter_Logo}
+              className="app_logo-tauschticket"
+              alt="logo_tauschticket"
+            />
+          </div>
+        </div>
+        <div className="header_description">
+          <p className="typography_description roboto-light">
+            Suspendisse augue tortor, eleifend nec lacus sit amet, sollicitudin
+            tristique dui. Donec gravida feugiat egestas. Aenean lacinia lacinia
+            urna et laoreet. Integer et tempus mi. Praesent elit enim, tincidunt
+            quis condimentum vitae, dignissim sed nulla. Phasellus varius nec
+            erat sed accumsan. Proin eget suscipit enim. Integer justo leo,
+            sollicitudin vitae neque at, sodales placerat orci. Suspendisse ac
+            turpis tortor. Etiam tempus tortor a elit maximus consectetur.
+            Integer ullamcorper, dolor vel posuere dictum, lectus quam tincidunt
+            dui, et sodales nibh dui ut purus.
+          </p>
+        </div>
+        <h1 className="header-1 abel-regular">How to get started</h1>
         <div className="area-textfield">
           {/* <div className="area-textfield__buttton">
             <Button variant="outlined" disableElevation>
@@ -261,7 +290,6 @@ function App() {
             /> */}
           </div>
         </div>
-
         {/* <p>And now</p> */}
       </header>
       {/* <body>
