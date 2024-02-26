@@ -108,6 +108,29 @@ body {
 .App-link {
   color: #61dafb;
 }
+.howToGetStarted_section {
+  grid-row-start: 3;
+  grid-row-end: 4;
+  grid-column-start: 4;
+  grid-column-end: -4;
+}
+.howToGetStarted_section-guide {
+  display: grid;
+  grid-template-columns: 60vw 40vw;
+}
+.howToGetStarted_section-guide__stepByStep {
+  display: grid;
+  grid-template-columns: min-content min-content;
+  grid-template-rows: min-content min-content min-content;
+  row-gap: 1rem;
+}
+.step {
+  display: grid;
+  grid-template-columns: min-content max-content;
+  column-gap: 0.5rem;
+  justify-items: center;
+  align-items: center;
+}
 .links-section {
   grid-column-start: 1;
   grid-column-end: -1;
@@ -147,6 +170,11 @@ body {
   padding-top: 1rem;
   padding-bottom: 1rem;
   font-size: 1rem;
+}
+.typography_step {
+  color: black;
+  font-size: 0.8rem;
+  font-weight: 600;
 }
 /*roboto style*/
 .roboto-thin {
@@ -230,12 +258,7 @@ body {
 /* ___ */
 .header-1_1 {
   font-size: 3rem;
-
   color: black;
-  grid-row-start: 3;
-  grid-row-end: 4;
-  grid-column-start: 4;
-  grid-column-end: -4;
 }
 .header-1_2 {
   font-size: 3rem;

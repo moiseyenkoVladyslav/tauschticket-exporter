@@ -3,6 +3,7 @@ import Tauschticket_Exporter_Logo from "./Tauschticket_Exporter_Logo.svg";
 import facebook_logo from "./facebook_logo.svg";
 import tiktok_logo from "./tiktok_logo.svg";
 import instagram_logo from "./instagram_logo.svg";
+import firstStep from "./_First_Step_.svg";
 import "./App.css";
 import Button from "@mui/material/Button";
 
@@ -52,7 +53,30 @@ function App() {
             dui, et sodales nibh dui ut purus.
           </p>
         </div>
-        <h1 className="header-1_1 abel-regular">How to get started</h1>
+        <div className="howToGetStarted_section">
+          <h1 className="header-1_1 abel-regular">How to get started</h1>
+          <div className="howToGetStarted_section-guide">
+            <div className=" __carousel"></div>
+            <div className="howToGetStarted_section-guide__stepByStep">
+              <div className="step">
+                <img src={firstStep}></img>
+                <h3 className="typography_step">First Step</h3>
+              </div>
+              <p className="step__desсription"></p>
+              <div className="step">
+                <img></img>
+                <h3 className="typography_step">Second Step</h3>
+              </div>
+              <p className="step__desсription"></p>
+              <div className="step">
+                <img></img>
+                <h3 className="typography_step">Third Step</h3>
+              </div>
+              <p className="step__desсription"></p>
+            </div>
+          </div>
+        </div>
+
         <div className="area-textfield">
           {/* <div className="area-textfield__buttton">
             <Button variant="outlined" disableElevation>
