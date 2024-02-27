@@ -3,7 +3,11 @@ import Tauschticket_Exporter_Logo from "./Tauschticket_Exporter_Logo.svg";
 import facebook_logo from "./facebook_logo.svg";
 import tiktok_logo from "./tiktok_logo.svg";
 import instagram_logo from "./instagram_logo.svg";
-import firstStep from "./_First_Step_.svg";
+
+import firstStep from "./_ButtonBase_.svg";
+import secondStep from "./_Second_Step_.svg";
+import thirdStep from "./_Third_Step_.svg";
+
 import "./App.css";
 import Button from "@mui/material/Button";
 
@@ -59,20 +63,53 @@ function App() {
             <div className=" __carousel"></div>
             <div className="howToGetStarted_section-guide__stepByStep">
               <div className="step">
-                <img src={firstStep}></img>
+                <img
+                  src={firstStep}
+                  className="howToGetStarted_section__icons"
+                ></img>
                 <h3 className="typography_step">First Step</h3>
               </div>
-              <p className="step__desсription"></p>
+              <p className="step__desсription roboto-regular">
+                In justo mi, pharetra in est bibendum, elementum fringilla est.
+                Donec ut elementum augue, eget fringilla libero. Nulla a odio
+                sem. Nunc erat est, consectetur at ipsum ac, luctus accumsan
+                urna. Pellentesque ultricies metus vitae arcu ullamcorper
+                faucibus. Nulla id dignissim eros. Suspendisse et ligula nec est
+                pellentesque eleifend. Etiam volutpat feugiat dignissim.
+                Interdum et malesuada fames ac ante ipsum primis in faucibus.
+              </p>
               <div className="step">
-                <img></img>
+                <img
+                  src={secondStep}
+                  className="howToGetStarted_section__icons"
+                ></img>
                 <h3 className="typography_step">Second Step</h3>
               </div>
-              <p className="step__desсription"></p>
+              <p className="step__desсription roboto-regular">
+                In justo mi, pharetra in est bibendum, elementum fringilla est.
+                Donec ut elementum augue, eget fringilla libero. Nulla a odio
+                sem. Nunc erat est, consectetur at ipsum ac, luctus accumsan
+                urna. Pellentesque ultricies metus vitae arcu ullamcorper
+                faucibus. Nulla id dignissim eros. Suspendisse et ligula nec est
+                pellentesque eleifend. Etiam volutpat feugiat dignissim.
+                Interdum et malesuada fames ac ante ipsum primis in faucibus.
+              </p>
               <div className="step">
-                <img></img>
+                <img
+                  src={thirdStep}
+                  className="howToGetStarted_section__icons"
+                ></img>
                 <h3 className="typography_step">Third Step</h3>
               </div>
-              <p className="step__desсription"></p>
+              <p className="step__desсription roboto-regular">
+                In justo mi, pharetra in est bibendum, elementum fringilla est.
+                Donec ut elementum augue, eget fringilla libero. Nulla a odio
+                sem. Nunc erat est, consectetur at ipsum ac, luctus accumsan
+                urna. Pellentesque ultricies metus vitae arcu ullamcorper
+                faucibus. Nulla id dignissim eros. Suspendisse et ligula nec est
+                pellentesque eleifend. Etiam volutpat feugiat dignissim.
+                Interdum et malesuada fames ac ante ipsum primis in faucibus.
+              </p>
             </div>
           </div>
         </div>

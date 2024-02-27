@@ -52,3 +52,34 @@ Fifma/Wireframe
     Cut down on revision time
     Decide content prioritization
     Test usability with users
+
+Testing:
+21. Both Jest and React Testing Library come pre-packaged with Create React App.
+  21.1 React Testing Library provides test helpers for structuring tests around user interactions
+  21.2 Jest is used as the test runner
+assertion-утверждение
+22.
+  22.1 getBy* (most commonly used)
+  22.2 queryBy* (used when testing the   absence of an element without throwing an error)
+  22.3 findBy* (used when testing asynchronous code)
+absence-отсутствие
+
+MVP
+Main Goals: 
+  1.Release a product to the market as quickly as possible
+    2.Test an idea with real users before committing a large budget to the product’s full development
+      3.Learn what resonates with the company’s target market and what doesn’t
+23. MVP (minimum viable product)- product with enough features to attract early-adopter customers and validate a product idea early in the product development cycle
+24. Because the **agile** methodology is built on validating and iterating products based on user input, the MVP plays a central role in **agile** development.
+25. Collect the maximum amount of validated learning about customers with the least amount of effort.
+
+MVP 2: 
+Main Goal: The second phase - develop the parser itself.
+
+24. parse - to divide (a sentence) into grammatical parts and identify the parts and their relations to each other.
+ 
+25. useState - Hoocks:
+    1. Only in function components
+    2. Always execution in same order
+    3. To have render useState fct. only ones -> define use state as a function
+26. DONT USE (vw/vh) with (fr-units)
