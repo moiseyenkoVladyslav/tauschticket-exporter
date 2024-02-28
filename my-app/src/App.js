@@ -10,10 +10,18 @@ import thirdStep from "./_Third_Step_.svg";
 
 import "./App.css";
 import Button from "@mui/material/Button";
-
 import Textarea from "@mui/joy/Textarea";
 
+import Carousel from "./Carousel";
+
+// Carousel
+
 function App() {
+  const images = [
+    "https://via.placeholder.com/800x400/ff5733/fff",
+    "https://via.placeholder.com/800x400/33ff57/fff",
+    "https://via.placeholder.com/800x400/5733ff/fff",
+  ];
   return (
     <div className="App">
       <header className="App-header">
@@ -60,7 +68,9 @@ function App() {
         <div className="howToGetStarted_section">
           <h1 className="header-1_1 abel-regular">How to get started</h1>
           <div className="howToGetStarted_section-guide">
-            <div className=" __carousel"></div>
+            <div className=" howToGetStarted_section-guide__carousel">
+              <Carousel images={images} />
+            </div>
             <div className="howToGetStarted_section-guide__stepByStep">
               <div className="step">
                 <img

@@ -1,0 +1,6 @@
+{
+  "dependencies": {
+    "antd": "^5.14.2",
+    "react-material-ui-carousel": "^3.4.2"
+  }
+}
