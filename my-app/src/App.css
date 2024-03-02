@@ -26,6 +26,9 @@ body {
   grid-column-start: 1;
   grid-column-end: -1;
 }
+.display-none {
+  display: none !important;
+}
 .App-header {
   /* background-color: #282c34; */
   background-color: white;

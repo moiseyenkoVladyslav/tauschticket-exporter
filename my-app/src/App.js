@@ -14,7 +14,108 @@ import Textarea from "@mui/joy/Textarea";
 
 import Carousel from "./Carousel";
 
-// Carousel
+import * as React from "react";
+import PropTypes from "prop-types";
+
+import Typography from "@mui/material/Typography";
+import Box from "@mui/material/Box";
+import { styled } from "@mui/material/styles";
+import CircularProgress, {
+  circularProgressClasses,
+} from "@mui/material/CircularProgress";
+
+import { useState } from "react";
+
+function CircularProgressWithLabel(props) {
+  return (
+    <Box sx={{ position: "relative", display: "inline-flex" }}>
+      <CircularProgress variant="determinate" {...props} />
+      <Box
+        sx={{
+          top: 0,
+          left: 0,
+          bottom: 0,
+          right: 0,
+          position: "absolute",
+          display: "flex",
+          alignItems: "center",
+          justifyContent: "center",
+        }}
+      >
+        <Typography variant="caption" component="div" color="text.secondary">
+          {`${Math.round(props.value)}%`}
+        </Typography>
+      </Box>
+    </Box>
+  );
+}
+
+CircularProgressWithLabel.propTypes = {
+  /**
+   * The value of the progress indicator for the determinate variant.
+   * Value between 0 and 100.
+   * @default 0
+   */
+  value: PropTypes.number.isRequired,
+};
+
+function CircularWithValueLabel() {
+  const [progress, setProgress] = React.useState(10);
+
+  React.useEffect(() => {
+    const timer = setInterval(() => {
+      setProgress((prevProgress) =>
+        prevProgress >= 100 ? 0 : prevProgress + 10
+      );
+    }, 800);
+    return () => {
+      clearInterval(timer);
+    };
+  }, []);
+
+  return <CircularProgressWithLabel value={progress} />;
+}
+
+function CircularIndeterminate() {
+  return (
+    <Box sx={{ display: "flex" }}>
+      <CircularProgress />
+    </Box>
+  );
+}
+
+function TriggerProgressBar() {
+  const [index, setIndex] = useState(false);
+
+  const buttonToggle = document.getElementsByClassName("button-toggle");
+  function handleClick() {
+    if (index === false) {
+      setIndex(true);
+
+      console.log("Setted to true");
+    } else {
+      setIndex(false);
+
+      setTimeout(() => {
+        console.log(`Timeout worked`);
+        setIndex(true);
+      }, 3000);
+      console.log("Setted to false");
+    }
+  }
+  return (
+    <div>
+      <Button
+        className={`button-toggle` + (index === false ? " display-none" : "")}
+        onClick={handleClick}
+      >
+        Start Parcing
+      </Button>
+
+      <CircularIndeterminate />
+    </div>
+  );
+}
 
 function App() {
   const images = [
@@ -22,6 +123,8 @@ function App() {
     "https://via.placeholder.com/800x400/33ff57/fff",
     "https://via.placeholder.com/800x400/5733ff/fff",
   ];
+
+  // const [, setIsLoading] = useState(true);
   return (
     <div className="App">
       <header className="App-header">
@@ -301,7 +404,9 @@ function App() {
                 maxRows={14}
               />
               <div className="area-textfield__buttons">
-                <Button type="submit">Start Parcing</Button>
+                {/* hi */}
+                <TriggerProgressBar />
+
                 <Button
                   className="button_download_json"
                   variant="outlined"
