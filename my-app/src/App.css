@@ -87,6 +87,7 @@ body {
   grid-column-end: -4;
   grid-row-start: 4;
   width: 100%;
+
   /* margin: 5rem 0; */
   display: flex;
   align-items: center;
@@ -104,9 +105,11 @@ body {
   flex-direction: column;
 }
 .area-textfield__buttons {
-  padding-top: 1.5rem;
+  height: 4rem;
+  padding-top: 0.5rem;
   display: flex;
   justify-content: space-around;
+  align-items: center;
 }
 .App-link {
   color: #61dafb;
@@ -174,6 +177,15 @@ body {
 .links-section_logo {
   width: 1.5rem;
   height: 1.5rem;
+}
+.parcing-animation {
+  display: grid;
+  grid-template-columns: max-content min-content;
+  column-gap: 2rem;
+}
+.parcing-animation_cirle {
+  width: 40px;
+  height: 40px;
 }
 /*Typography*/
 .typography_header-page {

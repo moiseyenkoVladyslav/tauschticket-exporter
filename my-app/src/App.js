@@ -85,34 +85,43 @@ function CircularIndeterminate() {
 }
 
 function TriggerProgressBar() {
-  const [index, setIndex] = useState(false);
+  const [downloading, setDownloading] = useState(false);
 
   const buttonToggle = document.getElementsByClassName("button-toggle");
   function handleClick() {
-    if (index === false) {
-      setIndex(true);
+    setDownloading(true);
 
-      console.log("Setted to true");
-    } else {
-      setIndex(false);
+    setTimeout(() => {
+      console.log(`Timeout worked`);
+      setDownloading(false);
+    }, 3000);
 
-      setTimeout(() => {
-        console.log(`Timeout worked`);
-        setIndex(true);
-      }, 3000);
-      console.log("Setted to false");
-    }
+    // if (index === false) {
+    //   setIndex(true);
+    //   console.log("Setted to true");
+    // } else {
+    //   setIndex(false);
+    //   setTimeout(() => {
+    //     console.log(`Timeout worked`);
+    //     setIndex(true);
+    //   }, 3000);
+    //   console.log("Setted to false");
+    // }
   }
   return (
-    <div>
-      <Button
+    <div className="parcing-animation">
+      {/* <Button
         className={`button-toggle` + (index === false ? " display-none" : "")}
         onClick={handleClick}
       >
         Start Parcing
+      </Button> */}
+      <Button className="button-toggle" onClick={handleClick} type="submit">
+        Start parcing
       </Button>
-
-      <CircularIndeterminate />
+      <div className="parcing-animation_cirle">
+        {downloading && <CircularIndeterminate />}
+      </div>
     </div>
   );
 }
@@ -228,11 +237,6 @@ function App() {
         </div>
 
         <div className="area-textfield">
-          {/* <div className="area-textfield__buttton">
-            <Button variant="outlined" disableElevation>
-              Start parcing
-            </Button>
-          </div> */}
           <div className="area-textfield__input">
             <form
               className="area-textfield__input-form"
@@ -404,7 +408,7 @@ function App() {
                 maxRows={14}
               />
               <div className="area-textfield__buttons">
-                {/* hi */}
+                {/* hi HALLO*/}
                 <TriggerProgressBar />
 
                 <Button
@@ -429,6 +433,8 @@ function App() {
                     downloadAnchorNode.click();
                     downloadAnchorNode.remove();
 
+                    //CLEANING LOCAL STORAGE//
+                    localStorage.clear();
                     //blob-2
                     // const myRequest = new Request("JSON_book.json");
                     // fetch(myRequest)
