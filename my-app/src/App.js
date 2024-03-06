@@ -9,6 +9,10 @@ import secondStep from "./_Second_Step_.svg";
 import thirdStep from "./_Third_Step_.svg";
 
 import "./App.css";
+import "./typography.css";
+import "./Carousel.css";
+
+import TriggerProgressBar from "./CircularProgressBar.js";
 import Button from "@mui/material/Button";
 import Textarea from "@mui/joy/Textarea";
 
@@ -23,8 +27,6 @@ import { styled } from "@mui/material/styles";
 import CircularProgress, {
   circularProgressClasses,
 } from "@mui/material/CircularProgress";
-
-import { useState } from "react";
 
 function CircularProgressWithLabel(props) {
   return (
@@ -74,56 +76,6 @@ function CircularWithValueLabel() {
   }, []);
 
   return <CircularProgressWithLabel value={progress} />;
-}
-
-function CircularIndeterminate() {
-  return (
-    <Box sx={{ display: "flex" }}>
-      <CircularProgress />
-    </Box>
-  );
-}
-
-function TriggerProgressBar() {
-  const [downloading, setDownloading] = useState(false);
-
-  const buttonToggle = document.getElementsByClassName("button-toggle");
-  function handleClick() {
-    setDownloading(true);
-
-    setTimeout(() => {
-      console.log(`Timeout worked`);
-      setDownloading(false);
-    }, 3000);
-
-    // if (index === false) {
-    //   setIndex(true);
-    //   console.log("Setted to true");
-    // } else {
-    //   setIndex(false);
-    //   setTimeout(() => {
-    //     console.log(`Timeout worked`);
-    //     setIndex(true);
-    //   }, 3000);
-    //   console.log("Setted to false");
-    // }
-  }
-  return (
-    <div className="parcing-animation">
-      {/* <Button
-        className={`button-toggle` + (index === false ? " display-none" : "")}
-        onClick={handleClick}
-      >
-        Start Parcing
-      </Button> */}
-      <Button className="button-toggle" onClick={handleClick} type="submit">
-        Start parcing
-      </Button>
-      <div className="parcing-animation_cirle">
-        {downloading && <CircularIndeterminate />}
-      </div>
-    </div>
-  );
 }
 
 function App() {

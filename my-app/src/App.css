@@ -6,10 +6,6 @@
   height: 40vmin;
   pointer-events: none;
 }
-.app_logo-tauschticket {
-  /* height: 2rem;
-  width: 2rem; */
-}
 
 @media (prefers-reduced-motion: no-preference) {
   .App-logo {
@@ -188,106 +184,6 @@ body {
   width: 40px;
   height: 40px;
 }
-/*Typography*/
-.typography_header-page {
-  /*1rem = 1px/16*/
-  font-size: 1rem;
-}
-.typography_description {
-  color: #7c7777;
-  font-size: 1rem;
-}
-.typography_links-section {
-  padding-top: 1rem;
-  padding-bottom: 1rem;
-  font-size: 1rem;
-}
-.typography_step {
-  color: black;
-  font-size: 0.8rem;
-  font-weight: 600;
-
-  justify-self: center;
-  align-self: center;
-}
-/*roboto style*/
-.roboto-thin {
-  font-family: "Roboto", sans-serif;
-  font-weight: 100;
-  font-style: normal;
-}
-
-.roboto-light {
-  font-family: "Roboto", sans-serif;
-  font-weight: 300;
-  font-style: normal;
-}
-
-.roboto-regular {
-  font-family: "Roboto", sans-serif;
-  font-weight: 400;
-  font-style: normal;
-}
-
-.roboto-medium {
-  font-family: "Roboto", sans-serif;
-  font-weight: 500;
-  font-style: normal;
-}
-
-.roboto-bold {
-  font-family: "Roboto", sans-serif;
-  font-weight: 700;
-  font-style: normal;
-}
-
-.roboto-black {
-  font-family: "Roboto", sans-serif;
-  font-weight: 900;
-  font-style: normal;
-}
-
-.roboto-thin-italic {
-  font-family: "Roboto", sans-serif;
-  font-weight: 100;
-  font-style: italic;
-}
-
-.roboto-light-italic {
-  font-family: "Roboto", sans-serif;
-  font-weight: 300;
-  font-style: italic;
-}
-
-.roboto-regular-italic {
-  font-family: "Roboto", sans-serif;
-  font-weight: 400;
-  font-style: italic;
-}
-
-.roboto-medium-italic {
-  font-family: "Roboto", sans-serif;
-  font-weight: 500;
-  font-style: italic;
-}
-
-.roboto-bold-italic {
-  font-family: "Roboto", sans-serif;
-  font-weight: 700;
-  font-style: italic;
-}
-
-.roboto-black-italic {
-  font-family: "Roboto", sans-serif;
-  font-weight: 900;
-  font-style: italic;
-}
-/*abel font*/
-.abel-regular {
-  font-family: "Abel", sans-serif;
-  font-weight: 400;
-  font-style: normal;
-}
 
 /* ___ */
 .header-1_1 {
@@ -297,43 +193,6 @@ body {
 .header-1_2 {
   font-size: 3rem;
   color: black;
-}
-/* src/Carousel.css */
-.carousel {
-  position: relative;
-  max-width: 100%;
-  overflow: hidden;
-}
-.carousel__btn {
-  position: absolute;
-  top: 50%;
-  transform: translateY(-50%);
-  background-color: rgba(0, 0, 0, 0.5);
-  color: white;
-  font-size: 1.5rem;
-  border: none;
-  padding: 1rem;
-  cursor: pointer;
-  z-index: 1;
-  transition: background-color 0.3s;
-}
-.carousel__btn:hover {
-  background-color: rgba(0, 0, 0, 0.8);
-}
-.carousel__btn--prev {
-  left: 0;
-}
-.carousel__btn--next {
-  right: 0;
-}
-.carousel__img {
-  width: 100%;
-  height: auto;
-  display: block;
-  transition: transform 0.3s ease-in-out;
-}
-.carousel__img:hover {
-  transform: scale(1.05);
 }
 
 @keyframes App-logo-spin {
