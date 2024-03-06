@@ -87,6 +87,7 @@ body {
   grid-column-end: -4;
   grid-row-start: 4;
   width: 100%;
+  margin-bottom: 4.5rem;
 
   /* margin: 5rem 0; */
   display: flex;
