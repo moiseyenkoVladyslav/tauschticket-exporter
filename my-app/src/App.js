@@ -77,13 +77,45 @@ function CircularWithValueLabel() {
 
   return <CircularProgressWithLabel value={progress} />;
 }
+function CircularIndeterminate() {
+  return (
+    <Box sx={{ display: "flex" }}>
+      <CircularProgress />
+    </Box>
+  );
+}
 
 function App() {
+  //Images
   const images = [
     "https://via.placeholder.com/800x400/ff5733/fff",
     "https://via.placeholder.com/800x400/33ff57/fff",
     "https://via.placeholder.com/800x400/5733ff/fff",
   ];
+  //Disable and Enable buttons
+  const [textareaValue, setTextareaValue] = React.useState("");
+  const [buttonActive, setButtonActive] = React.useState(false);
+  const [downloading, setDownloading] = React.useState(false);
+  const [buttonActiveJSON, setButtonActiveJSON] = React.useState(false);
+
+  const handleTextareaChange = (event) => {
+    const value = event.target.value;
+    setTextareaValue(value);
+    setButtonActive(value.trim().length > 0); // Enable button if textarea is filled
+  };
+
+  const handleButtonClick = () => {
+    // Handle button click action here
+
+    setDownloading(true);
+
+    setTimeout(() => {
+      console.log(`Timeout worked`);
+      setDownloading(false);
+    }, 3000);
+
+    setButtonActiveJSON(true);
+  };
 
   // const [, setIsLoading] = useState(true);
   return (
@@ -355,17 +387,38 @@ function App() {
             >
               <Textarea
                 placeholder="Paste your copied HTML code to parse it!"
+                onChange={handleTextareaChange}
                 required
                 sx={{ mb: 1 }}
                 maxRows={14}
+                minRows={4}
               />
               <div className="area-textfield__buttons">
                 {/* hi HALLO*/}
-                <TriggerProgressBar />
+                <div className="parcing-animation">
+                  {/* <Button
+        className={`button-toggle` + (index === false ? " display-none" : "")}
+        onClick={handleClick}
+      >
+        Start Parcing
+      </Button> */}
+                  <Button
+                    className="button-toggle"
+                    onClick={handleButtonClick}
+                    type="submit"
+                    disabled={!buttonActive}
+                  >
+                    Start parcing
+                  </Button>
+                  <div className="parcing-animation_cirle">
+                    {downloading && <CircularIndeterminate />}
+                  </div>
+                </div>
 
                 <Button
                   className="button_download_json"
                   variant="outlined"
+                  disabled={!buttonActiveJSON}
                   onClick={() => {
                     //using localStorage to get bookArray from form-Object
                     const bookJSON = localStorage.getItem("bookObjectArray");
@@ -385,8 +438,9 @@ function App() {
                     downloadAnchorNode.click();
                     downloadAnchorNode.remove();
 
-                    //CLEANING LOCAL STORAGE//
+                    //CLEANING LOCAL STORAGE and disable Button//
                     localStorage.clear();
+                    setButtonActiveJSON(false);
                     //blob-2
                     // const myRequest = new Request("JSON_book.json");
                     // fetch(myRequest)

@@ -83,3 +83,15 @@ Main Goal: The second phase - develop the parser itself.
     2. Always execution in same order
     3. To have render useState fct. only ones -> define use state as a function
 26. DONT USE (vw/vh) with (fr-units)
+
+
+React Basics: 
+A Component's Memory
+  (useState)
+  The useState Hook provides those two things:
+
+    A state variable to retain the data between renders.
+    A state setter function to update the variable and trigger React to render the component again.
+
+VERY good tip how to render Elements, only when needed: 
+  {downloading && <CircularIndeterminate />} - [downloading,setDownloading]. In this case, u can control when <CircularIndeterminate /> should be rendered.
