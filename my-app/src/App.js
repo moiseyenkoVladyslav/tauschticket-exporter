@@ -97,23 +97,33 @@ function App() {
   const [buttonActive, setButtonActive] = React.useState(false);
   const [downloading, setDownloading] = React.useState(false);
   const [buttonActiveJSON, setButtonActiveJSON] = React.useState(false);
+  const [parsingStatus, setParsingStatus] = React.useState(false);
+  const conditionLoadJson = !buttonActive && !buttonActiveJSON;
 
   const handleTextareaChange = (event) => {
     const value = event.target.value;
     setTextareaValue(value);
     setButtonActive(value.trim().length > 0); // Enable button if textarea is filled
+    setButtonActiveJSON(false);
   };
 
-  const handleButtonClick = () => {
+  const pauseExecution = async (milliseconds) => {
+    await new Promise((resolve) => setTimeout(resolve, milliseconds));
+  };
+
+  const handleButtonClick = async () => {
     // Handle button click action here
 
     setDownloading(true);
 
-    setTimeout(() => {
-      console.log(`Timeout worked`);
-      setDownloading(false);
-    }, 3000);
-
+    // if (parsingStatus === !true) {
+    //   setTimeout(() => {
+    //     console.log("hi");
+    //     setDownloading(false);
+    //   }, 1000);
+    // }
+    await pauseExecution(1000);
+    setDownloading(false);
     setButtonActiveJSON(true);
   };
 
@@ -226,6 +236,7 @@ function App() {
               className="area-textfield__input-form"
               onSubmit={(event) => {
                 event.preventDefault();
+                setParsingStatus(true);
                 const input = event.target[0].value;
                 // console.log(input, typeof input);
 
@@ -383,6 +394,8 @@ function App() {
                   JSON.stringify(bookObjectArray)
                 );
                 // localStorage.clear();
+
+                setParsingStatus(false);
               }}
             >
               <Textarea
@@ -414,11 +427,13 @@ function App() {
                     {downloading && <CircularIndeterminate />}
                   </div>
                 </div>
-
+                {console.log("1", !conditionLoadJson)};
+                {console.log("2", !buttonActive)};
+                {console.log("3", !buttonActiveJSON)};
                 <Button
                   className="button_download_json"
                   variant="outlined"
-                  disabled={!buttonActiveJSON}
+                  disabled={!(buttonActive && buttonActiveJSON)}
                   onClick={() => {
                     //using localStorage to get bookArray from form-Object
                     const bookJSON = localStorage.getItem("bookObjectArray");
@@ -440,7 +455,7 @@ function App() {
 
                     //CLEANING LOCAL STORAGE and disable Button//
                     localStorage.clear();
-                    setButtonActiveJSON(false);
+
                     //blob-2
                     // const myRequest = new Request("JSON_book.json");
                     // fetch(myRequest)
