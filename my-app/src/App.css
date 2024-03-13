@@ -175,6 +175,10 @@ body {
   width: 1.5rem;
   height: 1.5rem;
 }
+.links-section_anchor {
+  display: flex;
+  align-items: center;
+}
 .parcing-animation {
   display: grid;
   grid-template-columns: max-content min-content;

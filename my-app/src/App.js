@@ -146,9 +146,18 @@ function App() {
         */}
         <div className="header_page">
           <div className="header_page-navi">
-            <a className="typography_header-page">What is it</a>
-            <a className="typography_header-page">How to get Started</a>
-            <a className="typography_header-page">Why Buchbaum ?</a>
+            <a className="typography_header-page" href="#anchor_whatIsIt">
+              What is it
+            </a>
+            <a
+              className="typography_header-page"
+              href="#anchor_hotToGetStarted"
+            >
+              How to get Started
+            </a>
+            <a className="typography_header-page" href="#anchor_whyBuchbaum">
+              Why Buchbaum ?
+            </a>
           </div>
           <div className="header_page-logo">
             <img
@@ -159,20 +168,27 @@ function App() {
           </div>
         </div>
         <div className="header_description">
-          <p className="typography_description roboto-light">
-            Suspendisse augue tortor, eleifend nec lacus sit amet, sollicitudin
-            tristique dui. Donec gravida feugiat egestas. Aenean lacinia lacinia
-            urna et laoreet. Integer et tempus mi. Praesent elit enim, tincidunt
-            quis condimentum vitae, dignissim sed nulla. Phasellus varius nec
-            erat sed accumsan. Proin eget suscipit enim. Integer justo leo,
-            sollicitudin vitae neque at, sodales placerat orci. Suspendisse ac
-            turpis tortor. Etiam tempus tortor a elit maximus consectetur.
-            Integer ullamcorper, dolor vel posuere dictum, lectus quam tincidunt
-            dui, et sodales nibh dui ut purus.
-          </p>
+          <a id="anchor_whatIsIt">
+            <p className="typography_description roboto-light">
+              Users of Tauschticket can benefit from exporting their data to a
+              platform like Buchbaum for several reasons. Firstly, exporting
+              their offers allows users to preserve their valuable listing data
+              in a format that can be easily transferred to a more modern and
+              actively maintained platform. This ensures that their listings
+              remain accessible and visible to a wider audience of book
+              enthusiasts. Additionally, exporting data from Tauschticket to
+              Buchbaum enables users to take advantage of the enhanced features
+              and user experience offered by the latter platform. By migrating
+              their listings to Buchbaum, users can continue to engage in book
+              exchanges while enjoying a more efficient and user-friendly
+              platform.
+            </p>
+          </a>
         </div>
         <div className="howToGetStarted_section">
-          <h1 className="header-1_1 abel-regular">How to get started</h1>
+          <h1 className="header-1_1 abel-regular">
+            <a id="anchor_hotToGetStarted">How to get started</a>
+          </h1>
           <div className="howToGetStarted_section-guide">
             <div className=" howToGetStarted_section-guide__carousel">
               <Carousel images={images} />
@@ -499,33 +515,65 @@ function App() {
           </div>
         </div>
         <div className="footer">
-          <h1 className="header-1_2 abel-regular">Why Buchbaum ?</h1>
+          <h1 className="header-1_2 abel-regular">
+            <a id="anchor_whyBuchbaum">Why Buchbaum ?</a>
+          </h1>
           <div className="footer_description">
             <p className="typography_description roboto-light">
-              Suspendisse augue tortor, eleifend nec lacus sit amet,
-              sollicitudin tristique dui. Donec gravida feugiat egestas. Aenean
-              lacinia lacinia urna et laoreet. Integer et tempus mi. Praesent
-              elit enim, tincidunt quis condimentum vitae, dignissim sed nulla.
-              Phasellus varius nec erat sed accumsan. Proin eget suscipit enim.
-              Integer justo leo, sollicitudin vitae neque at, sodales placerat
-              orci. Suspendisse ac turpis tortor. Etiam tempus tortor a elit
-              maximus consectetur. Integer ullamcorper, dolor vel posuere
-              dictum, lectus quam tincidunt dui, et sodales nibh dui ut purus.
+              In an age where environmental consciousness and financial prudence
+              are increasingly valued, Buchbaum, a book exchange platform,
+              offers a compelling alternative to purchasing new books. Here's
+              why: Reducing Ecological Footprint: New book production consumes
+              significant natural resources like paper, ink, and energy.
+              Buchbaum promotes book reuse, cutting down on resource consumption
+              and carbon emissions. By extending the lifespan of books, Buchbaum
+              reduces waste in landfills. Cost-Effectiveness: Purchasing new
+              books, especially hardcovers and recent releases, can be
+              expensive. Buchbaum fees are minimal compared to the cost of
+              buying new books. Book exchanges within Buchbaum make reading more
+              affordable for everyone. Community Building: Buchbaum fosters a
+              sense of community among book enthusiasts. Members collaborate to
+              share resources, fostering connections and mutual support. Through
+              Buchbaum, individuals can access a diverse range of books while
+              also engaging in meaningful interactions with fellow readers.
+              Buchbaum offers a sustainable and cost-effective solution for avid
+              readers looking to reduce their ecological footprint and manage
+              their expenses. By embracing Buchbaum, individuals not only gain
+              access to a wealth of reading material but also play a part in
+              building a more environmentally conscious and financially prudent
+              community.
             </p>
           </div>
         </div>
         <div className="links-section">
           <div className="links-section_logos">
-            <img
-              src={facebook_logo}
-              className="links-section_logos-facebook"
-            ></img>
-            <img src={instagram_logo} className="links-section_logo"></img>
-            <img src={tiktok_logo} className="links-section_logo"></img>
+            <a
+              className="links-section_anchor"
+              href="https://www.facebook.com/buchbaum.de
+              "
+              target="_blank"
+            >
+              <img
+                src={facebook_logo}
+                className="links-section_logos-facebook"
+              ></img>
+            </a>
+            <a
+              className="links-section_anchor"
+              href="https://www.instagram.com/buchbaum.de/"
+              target="_blank"
+            >
+              <img src={instagram_logo} className="links-section_logo"></img>
+            </a>
+            <a
+              className="links-section_anchor"
+              href="https://www.tiktok.com/@buchbaum.de"
+              target="_blank"
+            >
+              <img src={tiktok_logo} className="links-section_logo"></img>
+            </a>
           </div>
-          <p className="typography_links-section">
-            2024 Tauschticket, Copyright All rights reserved
-          </p>
+          <p className="typography_links-section">© 2024, MB Readrounds</p>
         </div>
         {/* <p>And now</p> */}
       </header>

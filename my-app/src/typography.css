@@ -1,8 +1,15 @@
 /*Typography*/
-.typography_header-page {
+.typography_header-page,
+.typography_header-page:hover {
   /*1rem = 1px/16*/
   font-size: 1rem;
+  text-decoration: none;
+  color: white;
 }
+/* .typography_header-page:hover {
+  cursor: pointer;
+  text-decoration: none;
+} */
 .typography_description {
   color: #7c7777;
   font-size: 1rem;
