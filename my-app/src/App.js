@@ -153,7 +153,7 @@ function App() {
               className="typography_header-page"
               href="#anchor_hotToGetStarted"
             >
-              How to get Started
+              How to get started
             </a>
             <a className="typography_header-page" href="#anchor_whyBuchbaum">
               Why Buchbaum ?
@@ -351,6 +351,7 @@ function App() {
                   //Image & ISBN//
 
                   //ImageURL
+                  const regexImageXXL = /big/g;
                   const regexbookImage = /<img[^>]*src="([^"]+)"[^>]*>/g;
                   const bookImageArray =
                     parsedDocumentAllBooksRaw[i].getElementsByClassName(
@@ -359,7 +360,8 @@ function App() {
                   const bookImageSrcAtr = [
                     ...bookImageArray.matchAll(regexbookImage),
                   ].flat()[1];
-                  const bookSrc = `https:` + bookImageSrcAtr;
+                  const bookSrc =
+                    `https:` + bookImageSrcAtr.replace(regexImageXXL, `xxl`);
 
                   //ISBN
                   let bookISBN;
@@ -443,9 +445,9 @@ function App() {
                     {downloading && <CircularIndeterminate />}
                   </div>
                 </div>
-                {console.log("1", !conditionLoadJson)};
+                {/* {console.log("1", !conditionLoadJson)};
                 {console.log("2", !buttonActive)};
-                {console.log("3", !buttonActiveJSON)};
+                {console.log("3", !buttonActiveJSON)}; */}
                 <Button
                   className="button_download_json"
                   variant="outlined"
@@ -531,7 +533,7 @@ function App() {
               <p className="typography_description roboto-regular">
                 Reducing Ecological Footprint:
               </p>
-              <ul>
+              <ul className="footer_unorderedList">
                 <li className="typography_description roboto-light list-footer">
                   New book production consumes significant natural resources
                   like paper, ink, and energy.
@@ -550,7 +552,7 @@ function App() {
               <p className="typography_description roboto-regular">
                 Cost-Effectiveness:
               </p>
-              <ul>
+              <ul className="footer_unorderedList">
                 <li className="typography_description roboto-light list-footer">
                   Purchasing new books, especially hardcovers and recent
                   releases, can be expensive.
@@ -569,7 +571,7 @@ function App() {
               <p className="typography_description roboto-regular ">
                 Community Building:
               </p>
-              <ul className="footer_description-4__list">
+              <ul className="footer_description-4__list footer_unorderedList">
                 <li className="typography_description roboto-light list-footer">
                   Buchbaum fosters a sense of community among book enthusiasts.
                 </li>

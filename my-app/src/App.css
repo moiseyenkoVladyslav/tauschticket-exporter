@@ -1,5 +1,6 @@
 .App {
   text-align: center;
+  line-height: 1.2rem;
 }
 
 .App-logo {
@@ -148,8 +149,10 @@ body {
   grid-column-end: -2;
 }
 .howToGetStarted_section-guide {
-  display: grid;
   grid-template-columns: 60% 40%;
+  display: grid;
+  justify-content: center;
+  align-items: center;
 }
 .howToGetStarted_section-guide__stepByStep {
   align-self: center;
@@ -228,7 +231,9 @@ body {
   font-size: 3rem;
   color: black;
 }
-
+.footer_unorderedList li {
+  text-align: left;
+}
 @keyframes App-logo-spin {
   from {
     transform: rotate(0deg);
