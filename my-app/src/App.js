@@ -519,30 +519,81 @@ function App() {
             <a id="anchor_whyBuchbaum">Why Buchbaum ?</a>
           </h1>
           <div className="footer_description">
-            <p className="typography_description roboto-light">
-              In an age where environmental consciousness and financial prudence
-              are increasingly valued, Buchbaum, a book exchange platform,
-              offers a compelling alternative to purchasing new books. Here's
-              why: Reducing Ecological Footprint: New book production consumes
-              significant natural resources like paper, ink, and energy.
-              Buchbaum promotes book reuse, cutting down on resource consumption
-              and carbon emissions. By extending the lifespan of books, Buchbaum
-              reduces waste in landfills. Cost-Effectiveness: Purchasing new
-              books, especially hardcovers and recent releases, can be
-              expensive. Buchbaum fees are minimal compared to the cost of
-              buying new books. Book exchanges within Buchbaum make reading more
-              affordable for everyone. Community Building: Buchbaum fosters a
-              sense of community among book enthusiasts. Members collaborate to
-              share resources, fostering connections and mutual support. Through
-              Buchbaum, individuals can access a diverse range of books while
-              also engaging in meaningful interactions with fellow readers.
-              Buchbaum offers a sustainable and cost-effective solution for avid
-              readers looking to reduce their ecological footprint and manage
-              their expenses. By embracing Buchbaum, individuals not only gain
-              access to a wealth of reading material but also play a part in
-              building a more environmentally conscious and financially prudent
-              community.
-            </p>
+            <div className="footer_description-1">
+              <p className="typography_description roboto-light">
+                In an age where environmental consciousness and financial
+                prudence are increasingly valued, Buchbaum, a book exchange
+                platform, offers a compelling alternative to purchasing new
+                books. Here's why:
+              </p>
+            </div>
+            <div className="footer_description-2">
+              <p className="typography_description roboto-regular">
+                Reducing Ecological Footprint:
+              </p>
+              <ul>
+                <li className="typography_description roboto-light list-footer">
+                  New book production consumes significant natural resources
+                  like paper, ink, and energy.
+                </li>
+                <li className="typography_description roboto-light list-footer">
+                  Buchbaum promotes book reuse, cutting down on resource
+                  consumption and carbon emissions.
+                </li>
+                <li className="typography_description roboto-light list-footer">
+                  By extending the lifespan of books, Buchbaum reduces waste in
+                  landfills.
+                </li>
+              </ul>
+            </div>
+            <div className="footer_description-3">
+              <p className="typography_description roboto-regular">
+                Cost-Effectiveness:
+              </p>
+              <ul>
+                <li className="typography_description roboto-light list-footer">
+                  Purchasing new books, especially hardcovers and recent
+                  releases, can be expensive.
+                </li>
+                <li className="typography_description roboto-light list-footer">
+                  Buchbaum fees are minimal compared to the cost of buying new
+                  books.
+                </li>
+                <li className="typography_description roboto-light list-footer">
+                  Book exchanges within Buchbaum make reading more affordable
+                  for everyone.
+                </li>
+              </ul>
+            </div>
+            <div className="footer_description-4">
+              <p className="typography_description roboto-regular ">
+                Community Building:
+              </p>
+              <ul className="footer_description-4__list">
+                <li className="typography_description roboto-light list-footer">
+                  Buchbaum fosters a sense of community among book enthusiasts.
+                </li>
+                <li className="typography_description roboto-light list-footer">
+                  Members collaborate to share resources, fostering connections
+                  and mutual support.
+                </li>
+                <li className="typography_description roboto-light list-footer">
+                  Through Buchbaum, individuals can access a diverse range of
+                  books while also engaging in meaningful interactions with
+                  fellow readers.
+                </li>
+              </ul>
+            </div>
+            <div className="footer_description-5">
+              <p className="typography_description roboto-light">
+                Buchbaum offers a sustainable and cost-effective solution for
+                avid readers looking to reduce their ecological footprint and
+                manage their expenses. By embracing Buchbaum, individuals not
+                only gain access to a wealth of reading material but also play a
+                part in building a more environmentally conscious and
+                financially prudent community.
+              </p>
+            </div>
           </div>
         </div>
         <div className="links-section">
