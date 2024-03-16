@@ -1,2 +1,4 @@
 1. Learn Regex properlly and train it.
 2. Ознакомиться с Книгой - how to code in reactjs
+3.Promise refresh knowledge. 
+  await, async , ...

@@ -158,9 +158,9 @@ body {
   align-self: center;
   display: grid;
   grid-template-columns: min-content 1fr;
-  grid-template-rows: min-content min-content min-content;
+  grid-template-rows: min-content min-content min-content min-content;
   row-gap: 1rem;
-  column-gap: 1rem;
+  column-gap: 1.4rem;
 }
 .howToGetStarted_section-guide__carousel {
   padding-right: 2rem;

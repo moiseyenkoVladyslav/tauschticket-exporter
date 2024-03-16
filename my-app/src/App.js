@@ -7,6 +7,11 @@ import instagram_logo from "./instagram_logo.svg";
 import firstStep from "./_ButtonBase_.svg";
 import secondStep from "./_Second_Step_.svg";
 import thirdStep from "./_Third_Step_.svg";
+import fourthStep from "./_Fourth_Step_.svg";
+import firstImageCarousel from "./1stStep_jpeg.jpg";
+import secondImageCarousel from "./2Step.jpeg";
+import thirdImageCarousel from "./3rdStep_jpeg.jpg";
+import fourthImageCarousel from "./4Step_jpeg.jpg";
 
 import "./App.css";
 import "./typography.css";
@@ -27,6 +32,7 @@ import { styled } from "@mui/material/styles";
 import CircularProgress, {
   circularProgressClasses,
 } from "@mui/material/CircularProgress";
+import { useState, useEffect } from "react";
 
 function CircularProgressWithLabel(props) {
   return (
@@ -88,10 +94,40 @@ function CircularIndeterminate() {
 function App() {
   //Images
   const images = [
-    "https://via.placeholder.com/800x400/ff5733/fff",
-    "https://via.placeholder.com/800x400/33ff57/fff",
-    "https://via.placeholder.com/800x400/5733ff/fff",
+    firstImageCarousel,
+    secondImageCarousel,
+    thirdImageCarousel,
+    fourthImageCarousel,
   ];
+
+  // const AdjustableContainer = ({ images }) => {
+  //   const [containerSize, setContainerSize] = useState({ width: 0, height: 0 });
+
+  //   useEffect(() => {
+  //     let maxWidth = 0;
+  //     let maxHeight = 0;
+
+  //     // Calculate the maximum width and height among the images
+  //     images.forEach((image) => {
+  //       const img = new Image();
+  //       img.src = image.src;
+
+  //       img.onload = () => {
+  //         if (img.width > maxWidth) {
+  //           maxWidth = img.width;
+  //         }
+  //         if (img.height > maxHeight) {
+  //           maxHeight = img.height;
+  //         }
+
+  //         // Set the container size based on the maximum width and height
+  //         setContainerSize({ width: maxWidth, height: maxHeight });
+  //       };
+  //     });
+  //   }, [images]);
+  //   return containerSize;
+  // };
+
   //Disable and Enable buttons
   const [textareaValue, setTextareaValue] = React.useState("");
   const [buttonActive, setButtonActive] = React.useState(false);
@@ -144,6 +180,7 @@ function App() {
           Learn React
         </a> 
         */}
+
         <div className="header_page">
           <div className="header_page-navi">
             <a className="typography_header-page" href="#anchor_whatIsIt">
@@ -190,7 +227,13 @@ function App() {
             <a id="anchor_hotToGetStarted">How to get started</a>
           </h1>
           <div className="howToGetStarted_section-guide">
-            <div className=" howToGetStarted_section-guide__carousel">
+            <div
+              className=" howToGetStarted_section-guide__carousel"
+              // style={{
+              //   width: (<AdjustableContainer />).width,
+              //   height: (<AdjustableContainer />).height,
+              // }}
+            >
               <Carousel images={images} />
             </div>
             <div className="howToGetStarted_section-guide__stepByStep">
@@ -202,13 +245,8 @@ function App() {
                 <h3 className="typography_step">First Step</h3>
               </div>
               <p className="step__desсription roboto-regular">
-                In justo mi, pharetra in est bibendum, elementum fringilla est.
-                Donec ut elementum augue, eget fringilla libero. Nulla a odio
-                sem. Nunc erat est, consectetur at ipsum ac, luctus accumsan
-                urna. Pellentesque ultricies metus vitae arcu ullamcorper
-                faucibus. Nulla id dignissim eros. Suspendisse et ligula nec est
-                pellentesque eleifend. Etiam volutpat feugiat dignissim.
-                Interdum et malesuada fames ac ante ipsum primis in faucibus.
+                Go to your profile page in tauschticket.de, filter books and
+                show 100 offers per page.
               </p>
               <div className="step">
                 <img
@@ -218,13 +256,7 @@ function App() {
                 <h3 className="typography_step">Second Step</h3>
               </div>
               <p className="step__desсription roboto-regular">
-                In justo mi, pharetra in est bibendum, elementum fringilla est.
-                Donec ut elementum augue, eget fringilla libero. Nulla a odio
-                sem. Nunc erat est, consectetur at ipsum ac, luctus accumsan
-                urna. Pellentesque ultricies metus vitae arcu ullamcorper
-                faucibus. Nulla id dignissim eros. Suspendisse et ligula nec est
-                pellentesque eleifend. Etiam volutpat feugiat dignissim.
-                Interdum et malesuada fames ac ante ipsum primis in faucibus.
+                Open source code and copy it.
               </p>
               <div className="step">
                 <img
@@ -234,13 +266,18 @@ function App() {
                 <h3 className="typography_step">Third Step</h3>
               </div>
               <p className="step__desсription roboto-regular">
-                In justo mi, pharetra in est bibendum, elementum fringilla est.
-                Donec ut elementum augue, eget fringilla libero. Nulla a odio
-                sem. Nunc erat est, consectetur at ipsum ac, luctus accumsan
-                urna. Pellentesque ultricies metus vitae arcu ullamcorper
-                faucibus. Nulla id dignissim eros. Suspendisse et ligula nec est
-                pellentesque eleifend. Etiam volutpat feugiat dignissim.
-                Interdum et malesuada fames ac ante ipsum primis in faucibus.
+                Paste the code into the textarea and click "Start parsing".
+              </p>
+              <div className="step">
+                <img
+                  src={fourthStep}
+                  className="howToGetStarted_section__icons"
+                ></img>
+                <h3 className="typography_step">Fourth Step</h3>
+              </div>
+              <p className="step__desсription roboto-regular">
+                Download the result JSON file and send it to
+                support(at)buchbaum.de, we will add this data to your profile.
               </p>
             </div>
           </div>
