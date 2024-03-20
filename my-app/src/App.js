@@ -8,10 +8,10 @@ import firstStep from "./_ButtonBase_.svg";
 import secondStep from "./_Second_Step_.svg";
 import thirdStep from "./_Third_Step_.svg";
 import fourthStep from "./_Fourth_Step_.svg";
-import firstImageCarousel from "./1stStep_jpeg.jpg";
-import secondImageCarousel from "./2Step.jpeg";
-import thirdImageCarousel from "./3rdStep_jpeg.jpg";
-import fourthImageCarousel from "./4Step_jpeg.jpg";
+import firstImageCarousel from "./1stStep_800x400.jpeg";
+import secondImageCarousel from "./2ndStep_800x400.jpeg";
+import thirdImageCarousel from "./3rdStep_800x400.jpeg";
+import fourthImageCarousel from "./4Step_800x400.jpeg";
 
 import "./App.css";
 import "./typography.css";
