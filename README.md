@@ -5,7 +5,7 @@ The website is created using material-ui elements and deployed via Vercel.
 
 Demo: https://my-app-three-gold.vercel.app/
 
-##Install 
+## Install 
 
 1. Load the project to your local machine
 
@@ -24,7 +24,7 @@ Demo: https://my-app-three-gold.vercel.app/
 | react-scripts | 5.0.1      |
 | web-vitals | 2.1.4     |
 
-##Usage 
+## Usage 
 
 1. Run: npm start
 
@@ -34,5 +34,5 @@ After it you have this website running locally on your machine.
 
 3. After all steps you will download json-File with all needed information
 
-##Licence
+## Licence
 MIT License. Copyright (c) 2024 .
