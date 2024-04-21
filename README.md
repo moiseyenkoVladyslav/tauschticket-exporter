@@ -25,14 +25,15 @@ Demo: https://my-app-three-gold.vercel.app/
 | web-vitals | 2.1.4     |
 
 ## Usage 
+1. Navigate to my-app folder.
+2.Run: npm start 
 
-1. Run: npm start
 
 After it you have this website running locally on your machine.
 
-2. Follow guide in "How to get started section" to use the application
+3. Follow guide in "How to get started section" to use the application
 
-3. After all steps you will download json-File with all needed information
+4. After all steps you will download json-File with all needed information
 
 ## Licence
 MIT License. Copyright (c) 2024 .
