@@ -1,6 +1,6 @@
 # Tauschticket-parcer
 
-Tauschticket-parcer is an application for transporting existing data from another ressource to the Tauschticket.
+Tauschticket-parcer is an application for transporting existing data from Tauschticket to other platforms, e.g. Buchbaum.
 The website is created using material-ui elements and deployed via Vercel.
 
 Demo: https://my-app-three-gold.vercel.app/
